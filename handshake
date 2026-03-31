@@ -1,0 +1,26 @@
+import csv
+import json
+import hashlib
+import time
+import random
+from datetime import datetime
+
+# === CONFIG ===
+INPUT_CSV = "registry.csv"
+AUDIT_LOG = "audit_log.json"
+HANDSHAKE_LOG = "handshake_log.json"
+
+# === HELPERS ===
+def generate_handshake_id(row):
+    raw = f"{row['account_id']}-{time.time()}-{random.randint(1000,9999)}"
+    return hashlib.sha1(raw.encode()).hexdigest()
+
+def generate_nonce():
+    return f"nonce-{random.randint(100000,999999)}"
+
+def hash_response(nonce, secret="shared_secret"):
+    return hashlib.sha1(f"{nonce}{secret}".encode()).hexdigest()
+
+# === HANDSHAKE FLOW ===
+def perform_handshake(row):
+    handshake_id =
