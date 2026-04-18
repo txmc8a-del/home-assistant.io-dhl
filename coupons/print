@@ -1,0 +1,898 @@
+ <!-- In your suppressions.xml -->
+
+<!-- Suppress checks for legacy code -->
+<suppress checks=".*"
+          files=".*[\\/]legacy[\\/].+\.java$"/>
+
+<!-- Allow long parameter lists in configuration classes -->
+<suppress checks="ParameterNumber"
+          files=".*Config\.java$"/>
+
+<!-- Suppress naming checks for DTOs -->
+<suppress checks="AbbreviationAsWordInName"
+          files=".*[\\/]dto[\\/].+\.java$"/>
+
+<!-- Allow complex methods in main application class -->
+<suppress checks="CyclomaticComplexity"
+          files=".*Application\.java$"/>
+---
+Metadata:
+  AWSToolsMetrics:
+    IaC_Generator: "arn:aws:cloudformation:us-east-1:790522494525:generatedTemplate/8533549b-1205-4a92-aea0-6478f62757e8"
+Resources:
+  AppConfigApplicationLq:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AppConfig::Application"
+    DeletionPolicy: "Retain"
+    Properties:
+      Tags:
+      - Value: "arn:aws:resource-groups:us-east-1:790522494525:group/5.33.0/097ybyd7lmow0retob93c78qzb"
+        Key: "awsApplication"
+      Name: "Certified sgp"
+  AccessAnalyzerAnalyzerAnalyzerExternalAccessConsoleAnalyzerc92b24dd944c48f88815e1523704908a:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AccessAnalyzer::Analyzer"
+    DeletionPolicy: "Retain"
+    Properties:
+      ArchiveRules:
+      - Filter:
+        - Property: "condition.lambda:EventSourceToken"
+          Exists: false
+        - Eq:
+          - "true"
+          Property: "isPublic"
+        RuleName: "ArchiveRule-d623f21f-4139-4246-83ca-cecc8c2d671f"
+      Type: "ORGANIZATION"
+      AnalyzerName: "ExternalAccess-ConsoleAnalyzer-c92b24dd-944c-48f8-8815-e1523704908a"
+      Tags: []
+  ACMPCACertificateAuthorityCertificateauthority5f49a25c3fac49fb8b2238358d757c37:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::ACMPCA::CertificateAuthority"
+    DeletionPolicy: "Retain"
+    Properties:
+      SigningAlgorithm: "SHA256WITHECDSA"
+      Type: "ROOT"
+      Tags:
+      - Value: "arn:aws:resource-groups:us-east-1:790522494525:group/Fieldtrials/05vppx19hr8c1p8pvjg6khpefn"
+        Key: "awsApplication"
+      UsageMode: "GENERAL_PURPOSE"
+      KeyAlgorithm: "EC_prime256v1"
+  AccessAnalyzerAnalyzerAnalyzerExternalAccessConsoleAnalyzer7a877ceeee814cc3817ec616cca610d1:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AccessAnalyzer::Analyzer"
+    DeletionPolicy: "Retain"
+    Properties:
+      ArchiveRules: []
+      Type: "ORGANIZATION"
+      AnalyzerName: "ExternalAccess-ConsoleAnalyzer-7a877cee-ee81-4cc3-817e-c616cca610d1"
+      Tags: []
+  BillingConductorPricingRulePricingruleRcRylsvsKF:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::BillingConductor::PricingRule"
+    DeletionPolicy: "Retain"
+    Properties:
+      Type: "DISCOUNT"
+      ModifierPercentage: 100
+      Scope: "GLOBAL"
+      Tags: []
+      Name: "lambda-vpc-executive"
+  ApiGatewayRestApi:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::ApiGateway::RestApi"
+    DeletionPolicy: "Retain"
+    Properties:
+      ApiKeySourceType: "HEADER"
+      EndpointConfiguration:
+        IpAddressType: "dualstack"
+        Types:
+        - "PRIVATE"
+      DisableExecuteApiEndpoint: false
+      SecurityPolicy: "TLS_1_2"
+      Name: "Hmis"
+  AccessAnalyzerAnalyzerAnalyzerUnusedAccessConsoleAnalyzerf7cf7c31821541ad906c44409019dd6c:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AccessAnalyzer::Analyzer"
+    DeletionPolicy: "Retain"
+    Properties:
+      ArchiveRules: []
+      Type: "ACCOUNT_UNUSED_ACCESS"
+      AnalyzerName: "UnusedAccess-ConsoleAnalyzer-f7cf7c31-8215-41ad-906c-44409019dd6c"
+      Tags: []
+      AnalyzerConfiguration:
+        UnusedAccessConfiguration:
+          UnusedAccessAge: 90
+  AccessAnalyzerAnalyzerAnalyzerInternalAccessConsoleAnalyzer38b3743569904f589f9c6cf9fc13e45f:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AccessAnalyzer::Analyzer"
+    DeletionPolicy: "Retain"
+    Properties:
+      ArchiveRules: []
+      Type: "ACCOUNT_INTERNAL_ACCESS"
+      AnalyzerName: "InternalAccess-ConsoleAnalyzer-38b37435-6990-4f58-9f9c-6cf9fc13e45f"
+      Tags: []
+      AnalyzerConfiguration:
+        InternalAccessConfiguration:
+          InternalAccessAnalysisRule:
+            Inclusions:
+            - AccountIds: []
+              ResourceTypes:
+              - "AWS::S3::Bucket"
+              - "AWS::S3Express::DirectoryBucket"
+              - "AWS::DynamoDB::Table"
+              - "AWS::DynamoDB::Stream"
+              - "AWS::RDS::DBSnapshot"
+              - "AWS::RDS::DBClusterSnapshot"
+              ResourceArns: []
+  AthenaWorkGroupPrimary:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Athena::WorkGroup"
+    DeletionPolicy: "Retain"
+    Properties:
+      WorkGroupConfiguration:
+        RequesterPaysEnabled: false
+        EnforceWorkGroupConfiguration: false
+        EngineVersion:
+          SelectedEngineVersion: "AUTO"
+        PublishCloudWatchMetricsEnabled: true
+        ResultConfiguration: {}
+      State: "ENABLED"
+      Tags:
+      - Value: "arn:aws:resource-groups:us-east-1:790522494525:group/5.33.0/097ybyd7lmow0retob93c78qzb"
+        Key: "awsApplication"
+      Name: "primary"
+  ACMPCACertificateAuthorityCertificateauthority31a0d22d72594d1a8d4a5258e4dfd601:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::ACMPCA::CertificateAuthority"
+    DeletionPolicy: "Retain"
+    Properties:
+      SigningAlgorithm: "SHA256WITHRSA"
+      Type: "ROOT"
+      Tags: []
+      UsageMode: "GENERAL_PURPOSE"
+      KeyAlgorithm: "RSA_2048"
+  AppConfigApplicationQG:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AppConfig::Application"
+    DeletionPolicy: "Retain"
+    Properties:
+      Tags:
+      - Value: "arn:aws:resource-groups:us-east-1:790522494525:group/5.33.0/097ybyd7lmow0retob93c78qzb"
+        Key: "awsApplication"
+      Description: "Web"
+      Name: "2.1.0"
+  BillingConductorPricingRulePricingruleAtrEJaZhOs:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::BillingConductor::PricingRule"
+    DeletionPolicy: "Retain"
+    Properties:
+      Type: "DISCOUNT"
+      ModifierPercentage: 100
+      Description: "flcwlogs"
+      Scope: "GLOBAL"
+      Tags: []
+      Name: "networkadministrator"
+  BillingConductorPricingPlanPricingplanKCDHLtxa6R:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::BillingConductor::PricingPlan"
+    DeletionPolicy: "Retain"
+    Properties:
+      PricingRuleArns:
+      - "arn:aws:billingconductor::790522494525:pricingrule/6plMHW0eIP"
+      Tags: []
+      Name: "iampassrole"
+  AccessAnalyzerAnalyzerAnalyzerExternalAccessConsoleAnalyzer6d8648d044434a5b9aba3fd6b1e150fb:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AccessAnalyzer::Analyzer"
+    DeletionPolicy: "Retain"
+    Properties:
+      ArchiveRules: []
+      Type: "ORGANIZATION"
+      AnalyzerName: "ExternalAccess-ConsoleAnalyzer-6d8648d0-4443-4a5b-9aba-3fd6b1e150fb"
+      Tags: []
+  AppConfigApplication:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AppConfig::Application"
+    DeletionPolicy: "Retain"
+    Properties:
+      Description: "Version 26.14.899233904\nPlay services version 26.14.62(260400-897386856)"
+      Name: "tappay"
+  BillingConductorPricingRulePricingruleGr7NZjp3LG:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::BillingConductor::PricingRule"
+    DeletionPolicy: "Retain"
+    Properties:
+      Type: "DISCOUNT"
+      ModifierPercentage: 21
+      Scope: "GLOBAL"
+      Tags: []
+      Name: "Poweruseraccess"
+  BillingConductorPricingRulePricingrule6plMHW0eIP:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::BillingConductor::PricingRule"
+    DeletionPolicy: "Retain"
+    Properties:
+      Type: "DISCOUNT"
+      ModifierPercentage: 100
+      Scope: "GLOBAL"
+      Tags: []
+      Name: "05530"
+  BillingConductorPricingRulePricingruleaEW85Ud8HG:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::BillingConductor::PricingRule"
+    DeletionPolicy: "Retain"
+    Properties:
+      Type: "DISCOUNT"
+      ModifierPercentage: 100
+      Scope: "GLOBAL"
+      Tags: []
+      Name: "rdbms-lambda-access"
+  AccessAnalyzerAnalyzerAnalyzerUnusedAccessConsoleAnalyzer0d40b7d2430b40d2a36952108af0b372:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AccessAnalyzer::Analyzer"
+    DeletionPolicy: "Retain"
+    Properties:
+      ArchiveRules: []
+      Type: "ORGANIZATION_UNUSED_ACCESS"
+      AnalyzerName: "UnusedAccess-ConsoleAnalyzer-0d40b7d2-430b-40d2-a369-52108af0b372"
+      Tags:
+      - Value: "arn:aws:resource-groups:us-east-1:790522494525:group/5.33.0/097ybyd7lmow0retob93c78qzb"
+        Key: "awsApplication"
+      AnalyzerConfiguration:
+        UnusedAccessConfiguration:
+          UnusedAccessAge: 90
+  BillingConductorPricingRulePricingruleBT9lrUllLc:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::BillingConductor::PricingRule"
+    DeletionPolicy: "Retain"
+    Properties:
+      Type: "DISCOUNT"
+      ModifierPercentage: 29
+      Scope: "GLOBAL"
+      Tags: []
+      Name: "lambda-exec"
+---
+Metadata:
+  AWSToolsMetrics:
+    IaC_Generator: "arn:aws:cloudformation:us-east-1:790522494525:generatedTemplate/8533549b-1205-4a92-aea0-6478f62757e8"
+Resources:
+  AppConfigApplicationLq:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AppConfig::Application"
+    DeletionPolicy: "Retain"
+    Properties:
+      Tags:
+      - Value: "arn:aws:resource-groups:us-east-1:790522494525:group/5.33.0/097ybyd7lmow0retob93c78qzb"
+        Key: "awsApplication"
+      Name: "Certified sgp"
+  AccessAnalyzerAnalyzerAnalyzerExternalAccessConsoleAnalyzerc92b24dd944c48f88815e1523704908a:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AccessAnalyzer::Analyzer"
+    DeletionPolicy: "Retain"
+    Properties:
+      ArchiveRules:
+      - Filter:
+        - Property: "condition.lambda:EventSourceToken"
+          Exists: false
+        - Eq:
+          - "true"
+          Property: "isPublic"
+        RuleName: "ArchiveRule-d623f21f-4139-4246-83ca-cecc8c2d671f"
+      Type: "ORGANIZATION"
+      AnalyzerName: "ExternalAccess-ConsoleAnalyzer-c92b24dd-944c-48f8-8815-e1523704908a"
+      Tags: []
+  ACMPCACertificateAuthorityCertificateauthority5f49a25c3fac49fb8b2238358d757c37:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::ACMPCA::CertificateAuthority"
+    DeletionPolicy: "Retain"
+    Properties:
+      SigningAlgorithm: "SHA256WITHECDSA"
+      Type: "ROOT"
+      Tags:
+      - Value: "arn:aws:resource-groups:us-east-1:790522494525:group/Fieldtrials/05vppx19hr8c1p8pvjg6khpefn"
+        Key: "awsApplication"
+      UsageMode: "GENERAL_PURPOSE"
+      KeyAlgorithm: "EC_prime256v1"
+  AccessAnalyzerAnalyzerAnalyzerExternalAccessConsoleAnalyzer7a877ceeee814cc3817ec616cca610d1:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AccessAnalyzer::Analyzer"
+    DeletionPolicy: "Retain"
+    Properties:
+      ArchiveRules: []
+      Type: "ORGANIZATION"
+      AnalyzerName: "ExternalAccess-ConsoleAnalyzer-7a877cee-ee81-4cc3-817e-c616cca610d1"
+      Tags: []
+  BillingConductorPricingRulePricingruleRcRylsvsKF:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::BillingConductor::PricingRule"
+    DeletionPolicy: "Retain"
+    Properties:
+      Type: "DISCOUNT"
+      ModifierPercentage: 100
+      Scope: "GLOBAL"
+      Tags: []
+      Name: "lambda-vpc-executive"
+  ApiGatewayRestApi:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::ApiGateway::RestApi"
+    DeletionPolicy: "Retain"
+    Properties:
+      ApiKeySourceType: "HEADER"
+      EndpointConfiguration:
+        IpAddressType: "dualstack"
+        Types:
+        - "PRIVATE"
+      DisableExecuteApiEndpoint: false
+      SecurityPolicy: "TLS_1_2"
+      Name: "Hmis"
+  AccessAnalyzerAnalyzerAnalyzerUnusedAccessConsoleAnalyzerf7cf7c31821541ad906c44409019dd6c:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AccessAnalyzer::Analyzer"
+    DeletionPolicy: "Retain"
+    Properties:
+      ArchiveRules: []
+      Type: "ACCOUNT_UNUSED_ACCESS"
+      AnalyzerName: "UnusedAccess-ConsoleAnalyzer-f7cf7c31-8215-41ad-906c-44409019dd6c"
+      Tags: []
+      AnalyzerConfiguration:
+        UnusedAccessConfiguration:
+          UnusedAccessAge: 90
+  AccessAnalyzerAnalyzerAnalyzerInternalAccessConsoleAnalyzer38b3743569904f589f9c6cf9fc13e45f:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AccessAnalyzer::Analyzer"
+    DeletionPolicy: "Retain"
+    Properties:
+      ArchiveRules: []
+      Type: "ACCOUNT_INTERNAL_ACCESS"
+      AnalyzerName: "InternalAccess-ConsoleAnalyzer-38b37435-6990-4f58-9f9c-6cf9fc13e45f"
+      Tags: []
+      AnalyzerConfiguration:
+        InternalAccessConfiguration:
+          InternalAccessAnalysisRule:
+            Inclusions:
+            - AccountIds: []
+              ResourceTypes:
+              - "AWS::S3::Bucket"
+              - "AWS::S3Express::DirectoryBucket"
+              - "AWS::DynamoDB::Table"
+              - "AWS::DynamoDB::Stream"
+              - "AWS::RDS::DBSnapshot"
+              - "AWS::RDS::DBClusterSnapshot"
+              ResourceArns: []
+  AthenaWorkGroupPrimary:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::Athena::WorkGroup"
+    DeletionPolicy: "Retain"
+    Properties:
+      WorkGroupConfiguration:
+        RequesterPaysEnabled: false
+        EnforceWorkGroupConfiguration: false
+        EngineVersion:
+          SelectedEngineVersion: "AUTO"
+        PublishCloudWatchMetricsEnabled: true
+        ResultConfiguration: {}
+      State: "ENABLED"
+      Tags:
+      - Value: "arn:aws:resource-groups:us-east-1:790522494525:group/5.33.0/097ybyd7lmow0retob93c78qzb"
+        Key: "awsApplication"
+      Name: "primary"
+  ACMPCACertificateAuthorityCertificateauthority31a0d22d72594d1a8d4a5258e4dfd601:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::ACMPCA::CertificateAuthority"
+    DeletionPolicy: "Retain"
+    Properties:
+      SigningAlgorithm: "SHA256WITHRSA"
+      Type: "ROOT"
+      Tags: []
+      UsageMode: "GENERAL_PURPOSE"
+      KeyAlgorithm: "RSA_2048"
+  AppConfigApplicationQG:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AppConfig::Application"
+    DeletionPolicy: "Retain"
+    Properties:
+      Tags:
+      - Value: "arn:aws:resource-groups:us-east-1:790522494525:group/5.33.0/097ybyd7lmow0retob93c78qzb"
+        Key: "awsApplication"
+      Description: "Web"
+      Name: "2.1.0"
+  BillingConductorPricingRulePricingruleAtrEJaZhOs:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::BillingConductor::PricingRule"
+    DeletionPolicy: "Retain"
+    Properties:
+      Type: "DISCOUNT"
+      ModifierPercentage: 100
+      Description: "flcwlogs"
+      Scope: "GLOBAL"
+      Tags: []
+      Name: "networkadministrator"
+  BillingConductorPricingPlanPricingplanKCDHLtxa6R:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::BillingConductor::PricingPlan"
+    DeletionPolicy: "Retain"
+    Properties:
+      PricingRuleArns:
+      - "arn:aws:billingconductor::790522494525:pricingrule/6plMHW0eIP"
+      Tags: []
+      Name: "iampassrole"
+  AccessAnalyzerAnalyzerAnalyzerExternalAccessConsoleAnalyzer6d8648d044434a5b9aba3fd6b1e150fb:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AccessAnalyzer::Analyzer"
+    DeletionPolicy: "Retain"
+    Properties:
+      ArchiveRules: []
+      Type: "ORGANIZATION"
+      AnalyzerName: "ExternalAccess-ConsoleAnalyzer-6d8648d0-4443-4a5b-9aba-3fd6b1e150fb"
+      Tags: []
+  AppConfigApplication:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AppConfig::Application"
+    DeletionPolicy: "Retain"
+    Properties:
+      Description: "Version 26.14.899233904\nPlay services version 26.14.62(260400-897386856)"
+      Name: "tappay"
+  BillingConductorPricingRulePricingruleGr7NZjp3LG:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::BillingConductor::PricingRule"
+    DeletionPolicy: "Retain"
+    Properties:
+      Type: "DISCOUNT"
+      ModifierPercentage: 21
+      Scope: "GLOBAL"
+      Tags: []
+      Name: "Poweruseraccess"
+  BillingConductorPricingRulePricingrule6plMHW0eIP:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::BillingConductor::PricingRule"
+    DeletionPolicy: "Retain"
+    Properties:
+      Type: "DISCOUNT"
+      ModifierPercentage: 100
+      Scope: "GLOBAL"
+      Tags: []
+      Name: "05530"
+  BillingConductorPricingRulePricingruleaEW85Ud8HG:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::BillingConductor::PricingRule"
+    DeletionPolicy: "Retain"
+    Properties:
+      Type: "DISCOUNT"
+      ModifierPercentage: 100
+      Scope: "GLOBAL"
+      Tags: []
+      Name: "rdbms-lambda-access"
+  AccessAnalyzerAnalyzerAnalyzerUnusedAccessConsoleAnalyzer0d40b7d2430b40d2a36952108af0b372:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::AccessAnalyzer::Analyzer"
+    DeletionPolicy: "Retain"
+    Properties:
+      ArchiveRules: []
+      Type: "ORGANIZATION_UNUSED_ACCESS"
+      AnalyzerName: "UnusedAccess-ConsoleAnalyzer-0d40b7d2-430b-40d2-a369-52108af0b372"
+      Tags:
+      - Value: "arn:aws:resource-groups:us-east-1:790522494525:group/5.33.0/097ybyd7lmow0retob93c78qzb"
+        Key: "awsApplication"
+      AnalyzerConfiguration:
+        UnusedAccessConfiguration:
+          UnusedAccessAge: 90
+  BillingConductorPricingRulePricingruleBT9lrUllLc:
+    UpdateReplacePolicy: "Retain"
+    Type: "AWS::BillingConductor::PricingRule"
+    DeletionPolicy: "Retain"
+    Properties:
+      Type: "DISCOUNT"
+      ModifierPercentage: 29
+      Scope: "GLOBAL"
+      Tags: []
+      Name: "lambda-exec"
+  <?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+        "-//Puppy Crawl//DTD Suppressions 1.2//EN"
+        "http://www.puppycrawl.com/dtds/suppressions_1_2.dtd">
+<suppressions>
+    <!-- Base suppressions similar to AWS SDK -->
+    
+    <!-- Ignore most checks for test classes -->
+    <suppress checks="^((?!NoIgnoreAnnotationsCheck).)*$"
+              files=".*[\\/](test|it)[\\/]java[\\/].+\.java$"/>
+
+    <!-- Ignore missing annotation checks for generated/test code -->
+    <suppress checks="MissingSdkAnnotationCheck"
+              files=".(codegen|test|release|generated)[\\/].+\.java$"/>
+
+    <!-- Allow longer lines in configuration files -->
+    <suppress checks="LineLength"
+              files=".*Configuration\.java$"/>
+
+    <!-- Allow abbreviations in model classes -->
+    <suppress checks="AbbreviationAsWordInName"
+              files=".*[\\/]model[\\/].+\.java$"/>
+
+    <!-- Suppress complexity checks for builders -->
+    <suppress checks="CyclomaticComplexity|NPathComplexity"
+              files=".*Builder\.java$"/>
+
+    <!-- Allow utility classes without private constructor in test -->
+    <suppress checks="HideUtilityClassConstructor"
+              files=".*[\\/]test[\\/].+Utils\.java$"/>
+
+    <!-- Custom suppressions for your project -->
+    <!-- Add your specific suppressions here -->
+    
+</suppressions>
+https://docs.aws.amazon.com/securityhub/1.0/APIReference/API_BatchImportFindings.html#API_BatchImportFindings_ResponseSyntax<!-- Suppress custom AWS checks for specific scenarios -->
+<suppress checks="MissingSdkAnnotationCheck"
+          files=".*[\\/]internal[\\/].+\.java$"/>
+
+<suppress checks="SdkIllegalImportCheck"
+          files=".*[\\/]compatibility[\\/].+\.java$"/>
+
+<suppress checks="NonJavaBaseModuleCheck"
+          files=".*[\\/]benchmark[\\/].+\.
+ 
+<!-- Suppress checks for region-specific implementations -->
+<suppress checks="DuplicateCode"
+          files=".*[\\/](us-east-1|eu-west-1)[\\/].+\.java$"/>
+ 
+java $"/>
+ 
+<!-- Lambda-specific suppressions -->
+<suppress checks="MethodLength"
+          files=".*[\\/]lambda[\\/].*Handler\.java$"/>
+
+<!-- DynamoDB model suppressions -->
+<suppress checks="AbbreviationAsWordInName"
+          files=".*[\\/]dynamodb[\\/].*\.java$"/>
+
+<!-- API Gateway suppressions -->
+<suppress checks="ParameterNumber"
+          files=".*[\\/]apigateway[\\/].*Request\.java$"/>
+ 
+
+ 
+<!-- Suppress checks for generated code -->
+<suppress checks=".*"
+          files=".*[\\/]generated[\\/].+\.java$"/>
+
+<!-- Suppress specific checks for model classes -->
+<suppress checks="MemberName|ParameterName"
+          files=".*[\\/]model[\\/].+\.java$"/>
+
+<!-- Suppress line length for configuration files -->
+<suppress checks="LineLength"
+          files=".*Configuration\.java$"/>
+ 
+your -project/
+├── build-tools/
+│   └── src/main/resources/
+│       ├── checkstyle/
+│       │   ├── checkstyle.xml
+│       │   └── suppressions.xml
+│       └── spotbugs/
+└── src/main/java/<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+    "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+    "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+    <property name="charset" value="UTF-8"/>
+    <property name="severity" value="error"/>
+    <property name="fileExtensions" value="java, properties, xml"/>
+    
+    <!-- Suppressions file -->
+    <module name="SuppressionFilter">
+        <property name="file" value="${config_loc}/suppressions.xml"/>
+    </module>
+    
+    <!-- File-level checks -->
+    <module name="FileTabCharacter">
+        <property name="eachLine" value="true"/>
+    </module>
+    
+    <module name="TreeWalker">
+        <!-- AWS-specific custom checks -->
+        <module name="software.amazon.awssdk.buildtools.checkstyle.MissingSdkAnnotationCheck"/>
+        <module name="software.amazon.awssdk.buildtools.checkstyle.NoIgnoreAnnotationsCheck"/>
+        <module name="software.amazon.awssdk.buildtools.checkstyle.NonJavaBaseModuleCheck"/>
+        <module name="software.amazon.awssdk.buildtools.checkstyle.SdkIllegalImportCheck"/>
+        <module name="software.amazon.awssdk.buildtools.checkstyle.SdkPublicMethodNameCheck"/>
+        
+        <!-- Standard checks -->
+        <module name="OuterTypeFilename"/>
+        <module name="IllegalTokenText">
+            <property name="tokens" value="STRING_LITERAL, CHAR_LITERAL"/>
+            <property name="format" value="\\u00(09|0(a|A)|0(c|C)|0(d|D)|22|27|5(C|c))|\\(0(10|11|12|14|15|16|17|20|21|23|24|25|26|27|30|31)"/>
+            <property name="message" value="Consider using special escape sequence instead of octal value or Unicode escaped value."/>
+        </module>
+        
+        <!-- Import checks -->
+        <module name="AvoidStarImport"/>
+        <module name="IllegalImport"/>
+        <module name="RedundantImport"/>
+        <module name="UnusedImports"/>
+        
+        <!-- Size violations -->
+        <module name="LineLength">
+            <property name="max" value="120"/>
+            <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+        </module>
+        <module name="MethodLength">
+            <property name="max" value="150"/>
+        </module>
+        
+        <!-- Naming conventions -->
+        <module name="ConstantName"/>
+        <module name="LocalFinalVariableName"/>
+        <module name="LocalVariableName"/>
+        <module name="MemberName"/>
+        <module name="MethodName"/>
+        <module name="PackageName"/>
+        <module name="ParameterName"/>
+        <module name="StaticVariableName"/>
+        <module name="TypeName"/>
+        
+        <!-- Whitespace -->
+        <module name="GenericWhitespace"/>
+        <module name="MethodParamPad"/>
+        <module name="NoWhitespaceAfter"/>
+        <module name="NoWhitespaceBefore"/>
+        <module name="ParenPad"/>
+        <module name="TypecastParenPad"/>
+        <module name="WhitespaceAfter"/>
+        <module name="WhitespaceAround"/>
+        
+        <!-- Modifier checks -->
+        <module name="ModifierOrder"/>
+        <module name="RedundantModifier"/>
+        
+        <!-- Block checks -->
+        <module name="AvoidNestedBlocks"/>
+        <module name="EmptyBlock"/>
+        <module name="LeftCurly"/>
+        <module name="NeedBraces"/>
+        <module name="RightCurly"/>
+        
+        <!-- Common coding problems -->
+        <module name="EmptyStatement"/>
+        <module name="EqualsHashCode"/>
+        <module name="HiddenField">
+            <property name="ignoreConstructorParameter" value="true"/>
+            <property name="ignoreSetter" value="true"/>
+        </module>
+        <module name="IllegalInstantiation"/>
+        <module name="InnerAssignment"/>
+        <module name="MissingSwitchDefault"/>
+        <module name="SimplifyBooleanExpression"/>
+        <module name="SimplifyBooleanReturn"/>
+        
+        <!-- Class design -->
+        <module name="FinalClass"/>
+        <module name="HideUtilityClassConstructor"/>
+        <module name="InterfaceIsType"/>
+        <module name="VisibilityModifier"/>
+    </module>
+</module><?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+    "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+    "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+    <property name="charset" value="UTF-8"/>
+    <property name="severity" value="error"/>
+    <property name="fileExtensions" value="java, properties, xml"/>
+    
+    <!-- Suppressions file -->
+    <module name="SuppressionFilter">
+        <property name="file" value="${config_loc}/suppressions.xml"/>
+    </module>
+    
+    <!-- File-level checks -->
+    <module name="FileTabCharacter">
+        <property name="eachLine" value="true"/>
+    </module>
+    
+    <module name="TreeWalker">
+        <!-- AWS-specific custom checks -->
+        <module name="software.amazon.awssdk.buildtools.checkstyle.MissingSdkAnnotationCheck"/>
+        <module name="software.amazon.awssdk.buildtools.checkstyle.NoIgnoreAnnotationsCheck"/>
+        <module name="software.amazon.awssdk.buildtools.checkstyle.NonJavaBaseModuleCheck"/>
+        <module name="software.amazon.awssdk.buildtools.checkstyle.SdkIllegalImportCheck"/>
+        <module name="software.amazon.awssdk.buildtools.checkstyle.SdkPublicMethodNameCheck"/>
+        
+        <!-- Standard checks -->
+        <module name="OuterTypeFilename"/>
+        <module name="IllegalTokenText">
+            <property name="tokens" value="STRING_LITERAL, CHAR_LITERAL"/>
+            <property name="format" value="\\u00(09|0(a|A)|0(c|C)|0(d|D)|22|27|5(C|c))|\\(0(10|11|12|14|15|16|17|20|21|23|24|25|26|27|30|31)"/>
+            <property name="message" value="Consider using special escape sequence instead of octal value or Unicode escaped value."/>
+        </module>
+        
+        <!-- Import checks -->
+        <module name="AvoidStarImport"/>
+        <module name="IllegalImport"/>
+        <module name="RedundantImport"/>
+        <module name="UnusedImports"/>
+        
+        <!-- Size violations -->
+        <module name="LineLength">
+            <property name="max" value="120"/>
+            <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+        </module>
+        <module name="MethodLength">
+            <property name="max" value="150"/>
+        </module>
+        
+        <!-- Naming conventions -->
+        <module name="ConstantName"/>
+        <module name="LocalFinalVariableName"/>
+        <module name="LocalVariableName"/>
+        <module name="MemberName"/>
+        <module name="MethodName"/>
+        <module name="PackageName"/>
+        <module name="ParameterName"/>
+        <module name="StaticVariableName"/>
+        <module name="TypeName"/>
+        
+        <!-- Whitespace -->
+        <module name="GenericWhitespace"/>
+        <module name="MethodParamPad"/>
+        <module name="NoWhitespaceAfter"/>
+        <module name="NoWhitespaceBefore"/>
+        <module name="ParenPad"/>
+        <module name="TypecastParenPad"/>
+        <module name="WhitespaceAfter"/>
+        <module name="WhitespaceAround"/>
+        
+        <!-- Modifier checks -->
+        <module name="ModifierOrder"/>
+        <module name="RedundantModifier"/>
+        
+        <!-- Block checks -->
+        <module name="AvoidNestedBlocks"/>
+        <module name="EmptyBlock"/>
+        <module name="LeftCurly"/>
+        <module name="NeedBraces"/>
+        <module name="RightCurly"/>
+        
+        <!-- Common coding problems -->
+        <module name="EmptyStatement"/>
+        <module name="EqualsHashCode"/>
+        <module name="HiddenField">
+            <property name="ignoreConstructorParameter" value="true"/>
+            <property name="ignoreSetter" value="true"/>
+        </module>
+        <module name="IllegalInstantiation"/>
+        <module name="InnerAssignment"/>
+        <module name="MissingSwitchDefault"/>
+        <module name="SimplifyBooleanExpression"/>
+        <module name="SimplifyBooleanReturn"/>
+        
+        <!-- Class design -->
+        <module name="FinalClass"/>
+        <module name="HideUtilityClassConstructor"/>
+        <module name="InterfaceIsType"/>
+        <module name="VisibilityModifier"/>
+    </module>
+</module>
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <version>3.3.1</version>
+            <configuration>
+                <configLocation>build-tools/src/main/resources/checkstyle/checkstyle.xml</configLocation>
+                <suppressionsLocation>build-tools/src/main/resources/checkstyle/suppressions.xml</suppressionsLocation>
+                <encoding>UTF-8</encoding>
+                <consoleOutput>true</consoleOutput>
+                <failsOnError>true</failsOnError>
+                <includeTestSourceDirectory>true</includeTestSourceDirectory>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>validate</id>
+                    <phase>validate</phase>
+                    <goals>
+                        <goal>check</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <dependencies>
+                <dependency>
+                    <groupId>com.puppycrawl.tools</groupId>
+                    <artifactId>checkstyle</artifactId>
+                    <version>10.12.4</version>
+                </dependency>
+                <!-- Add AWS SDK build tools if available -->
+                <dependency>
+                    <groupId>software.amazon.awssdk</groupId>
+                    <artifactId>build-tools</artifactId>
+                    <version>2.21.29</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+    </plugins>
+</build> <build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-checkstyle-plugin</artifactId>
+            <version>3.3.1</version>
+            <configuration>
+                <configLocation>build-tools/src/main/resources/checkstyle/checkstyle.xml</configLocation>
+                <suppressionsLocation>build-tools/src/main/resources/checkstyle/suppressions.xml</suppressionsLocation>
+                <encoding>UTF-8</encoding>
+                <consoleOutput>true</consoleOutput>
+                <failsOnError>true</failsOnError>
+                <includeTestSourceDirectory>true</includeTestSourceDirectory>
+            </configuration>
+            <executions>
+                <execution>
+                    <id>validate</id>
+                    <phase>validate</phase>
+                    <goals>
+                        <goal>check</goal>
+                    </goals>
+                </execution>
+            </executions>
+            <dependencies>
+                <dependency>
+                    <groupId>com.puppycrawl.tools</groupId>
+                    <artifactId>checkstyle</artifactId>
+                    <version>10.12.4</version>
+                </dependency>
+                <!-- Add AWS SDK build tools if available -->
+                <dependency>
+                    <groupId>software.amazon.awssdk</groupId>
+                    <artif plugins {
+    id 'checkstyle'
+}
+
+checkstyle {
+    toolVersion = '10.12.4'
+    configFile = file('build-tools/src/main/resources/checkstyle/checkstyle.xml')
+    configProperties = [
+        'config_loc': 'build-tools/src/main/resources/checkstyle'
+    ]
+}
+
+checkstyleMain {
+    source = 'src/main/java'
+}
+
+checkstyleTest {
+    source = 'src/test/java'
+}
+
+dependencies {
+    checkstyle 'software.amazon.awssdk:build-tools:2.21.29'
+} plugins {
+    id 'checkstyle'
+}
+
+checkstyle {
+    toolVersion = '10.12.4'
+    configFile = file('build-tools/src/main/resources/checkstyle/checkstyle.xml')
+    configProperties = [
+        'config_loc': 'build-tools/src/main/resources/checkstyle'
+    ]
+}
+
+checkstyleMain {
+    source = 'src/main/java'
+}
+
+checkstyleTest {
+    source = 'src/test/java'
+}
+
+dependencies {
+    checkstyle 'software.amazon.awssdk:build-tools:2.21.29'
+}actId>build-tools</artifactId>
+                    <version>2.21.29</version>
+                </dependency>
+            </dependencies>
+        </plugin>
+    </plugins>
+</build>
+
