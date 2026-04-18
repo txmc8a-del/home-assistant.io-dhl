@@ -1,0 +1,9 @@
+checkstyle {
+    toolVersion = '10.12.4'
+    configFile = file('build-tools/src/main/resources/checkstyle/checkstyle.xml')
+    configProperties = [ 'config_loc': 'build-tools/src/main/resources/checkstyle' ]
+}
+
+dependencies {
+    checkstyle 'software.amazon.awssdk:build-tools:2.21.29'
+}
