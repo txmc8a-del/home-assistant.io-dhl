@@ -1,0 +1,18 @@
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-checkstyle-plugin</artifactId>
+    <version>3.3.1</version>
+    <configuration>
+        <configLocation>build-tools/src/main/resources/checkstyle/checkstyle.xml</configLocation>
+        <suppressionsLocation>build-tools/src/main/resources/checkstyle/suppressions.xml</suppressionsLocation>
+        <consoleOutput>true</consoleOutput>
+        <failsOnError>true</failsOnError>
+    </configuration>
+    <dependencies>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>build-tools</artifactId>
+            <version>2.21.29</version>
+        </dependency>
+    </dependencies>
+</plugin>
