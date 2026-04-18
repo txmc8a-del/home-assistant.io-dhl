@@ -1,3 +1,23 @@
+{% configuration s3.storage %}
+bucket_name:
+  type: string
+  required: true
+  description: "The name of the S3 bucket where audit reports are stored."
+region:
+  type: string
+  required: false
+  default: "us-east-1"
+  description: "The AWS region for the storage bucket."
+retention_policy:
+  type: map
+  required: true
+  description: "Rules for data retention."
+  keys:
+    days:
+      type: integer
+      required: true
+      description: "Number of days to keep records."
+{% endconfiguration %}
 module Jekyll
   class ConfigurationBlock < Liquid::Block
     TYPE_LINKS = {
