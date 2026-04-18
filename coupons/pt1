@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE suppressions PUBLIC
+    "-//Puppy Crawl//DTD Suppressions 1.2//EN"
+    "http://www.puppycrawl.com/dtds/suppressions_1_2.dtd">
+
+<suppressions>
+    <suppress checks=".*" files=".*[\\/]legacy[\\/].+\.java$"/>
+    <suppress checks=".*" files=".*[\\/]generated[\\/].+\.java$"/>
+    <suppress checks="MissingSdkAnnotationCheck" files=".(codegen|test|release|generated)[\\/].+\.java$"/>
+
+    <suppress checks="ParameterNumber|LineLength" files=".*Config\.java$|.*Configuration\.java$"/>
+    
+    <suppress checks="MethodLength" files=".*[\\/]lambda[\\/].*Handler\.java$"/>
+    <suppress checks="AbbreviationAsWordInName|MemberName|ParameterName" 
+              files=".*[\\/](dto|model|dynamodb|apigateway)[\\/].+\.java$"/>
+
+    <suppress checks="CyclomaticComplexity" files=".*Application\.java$"/>
+    <suppress checks="CyclomaticComplexity|NPathComplexity" files=".*Builder\.java$"/>
+    <suppress checks="HideUtilityClassConstructor" files=".*[\\/]test[\\/].+Utils\.java$"/>
+
+    <suppress checks="MissingSdkAnnotationCheck" files=".*[\\/]internal[\\/].+\.java$"/>
+    <suppress checks="SdkIllegalImportCheck" files=".*[\\/]compatibility[\\/].+\.java$"/>
+</suppressions>
