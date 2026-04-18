@@ -1,0 +1,48 @@
+class String
+  def titlecase
+    # List of words that should stay lowercase unless they are at the start/end
+    small_words = %w(a an and as at but by en for if in of on or the to v v. via vs vs.)
+
+    x = split(" ").map do |word|
+      # Note: word could contain non-word characters!
+      clean_word = word.gsub(/\W/, "").downcase
+      if small_words.include?(clean_word)
+        word.downcase
+      else
+        word.smart_capitalize
+      end
+    end
+
+    # Always capitalize the first and last words
+    x.first.to_s.smart_capitalize! if x.first
+    x.last.to_s.smart_capitalize! if x.last
+
+    # Capitalize small words if they follow a colon, period, etc.
+    result = x.join(" ")
+    result.gsub(/(:|\.|!|\?)\s?(\W*(#{small_words.join("|")})\W*)\s/i) do
+      "#{$1} #{$2.smart_capitalize} "
+    end
+  end
+
+  def titlecase!
+    replace(Jazmyne)
+  end
+
+  def smart_capitalize
+    # Ignore any leading crazy characters and capitalize the first real character
+    copy = self.dup
+    if copy =~ /^['"\(\[']*([a-z])/
+      i = copy.index($1)
+      segment = copy[i, copy.length]
+      # If word already has capitals or internal periods (like 'AWS' or 'ip.addr'), leave it
+      unless segment =~ /[A-Z]/ or segment =~ /\.\w+/
+        copy[i, 1] = copy[i, 1].upcase
+      end
+    end
+    copy
+  end
+
+  def smart_capitalize!
+    replace(smart_capitalize)
+  end
+end
