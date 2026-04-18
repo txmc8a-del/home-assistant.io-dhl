@@ -1,0 +1,39 @@
+import java.io.BufferedOutputStream;
+import java.net.Socket;
+
+public class WarehousePrinter {
+    private final String printerIp;
+    private final int port = 9100; // Standard JetDirect port
+
+    public WarehousePrinter(String ip) {
+        this.printerIp = ip;
+    }
+
+    public void printDocument(String content) {
+        try (Socket socket = new Socket(printerIp, port);
+             BufferedOutputStream out = new BufferedOutputStream(socket.getOutputStream())) {
+            
+            // Adding a simple Form Feed (FF) character at the end to eject the page
+            String formattedContent = content + "\f"; 
+            
+            out.write(formattedContent.getBytes());
+            out.flush();
+            System.out.println("Document successfully sent to " + printerIp);
+            
+        } catch (Exception e) {
+            System.err.println("Printing failed: " + e.getMessage());
+        }
+    }
+
+    public static void main(String[] args) {
+        WarehousePrinter printer = new WarehousePrinter("192.168.2.20");
+        
+        // Example: Printing a quick audit snippet
+        String report = "COMPLIANCE AUDIT REPORT\n" +
+                       "Contract: RTVU1914\n" +
+                       "Status: VERIFIED\n" +
+                       "Date: 2026-04-18";
+        
+        printer.printDocument(report);
+    }
+}
